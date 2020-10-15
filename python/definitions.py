@@ -46,6 +46,8 @@ properties = [
     ("padding-top", ["ptop","padtop"], "px", None),
     ("padding-bottom", ["pbottom","padbottom"], "px", None),
 
+    ("appearance", [], None, ["none", "auto", "initial", "inherit", "icon", "window", "button", "menu", "field", "desktop", "workspace", "document", "tooltip", "dialogue", "push-button", "hyperlink", "radio-button", "checkbox", "menu-item", "tab", "menubar", "outline-tree", "range", "signature", "password"]),
+
     ("z-index", [], "_", None),
 
     ("display", [], None, ["none", "block", "inline", "inline-block", "table", "table-cell", "table-row"]),
@@ -56,13 +58,13 @@ properties = [
     ("overflow-y", ["oy"], None, ["visible", "scroll", "hidden", "auto", "inherit"]),
 
     ("font", [], None, None),
-    ("font-size", ["fsize", "fosize"], "em", None),
+    ("font-size", ["fsize", "fosize"], "px", None),
     ("font-style", ["fstyle", "fostyle"], None, ["italic","normal","inherit"]),
     ("font-weight", ["fweight", "foweight"], None, ["100","200","300","400","500","600","700","800","900","bold","normal","inherit"]),
     ("font-variant", ["fvariant", "fovariant"], None, None),
-    ("font-family", ["ffamily", "family"], None, None),
+    ("font-family", ["ffamily", "family"], None, ["inherit"]),
     ("line-height", ["lheight", "liheight"], "_", None),
-    ("letter-spacing", ["lspacing", "lespacing"], "px", None),
+    ("letter-spacing", ["lspacing", "lespacing"], "px", ["normal"]),
 
     ("transition", ["trans", "tn", "tsition"], None, None),
     ("transform", ["tform", "xform"], None, None),
@@ -120,7 +122,7 @@ properties = [
     ("flex-direction", ["fdirection", "fldirection", "fledirection"], None, None),
     ("flex-wrap", ["fwrap", "flwrap", "flewrap"], None, None),
     ("align-items", ["aitems", "alitems"], None, ["flex-start", "flex-end", "center", "baseline", "stretch", "inherit"]),
-    ("justify-content", ["jcontent", "jucontent", "juscontent", "justcontent"], None, ["flex-start", "flex-end", "center", "space-around", "space-between", "inherit"]),
+    ("justify-content", ["jcontent", "jucontent", "juscontent", "justcontent"], None, ["flex-start", "flex-end", "center", "space-around", "space-between", "space-evenly", "stretch", "inherit"]),
     ("order", [], "_", None),
 
     ("page-break-after", ["pbafter"], None, ["always", "auto", "avoid", "left", "right", "inherit"]),
@@ -173,7 +175,7 @@ statements = [
     ("font-style", "italic", ["fsitalic", "italic"]),
     ("font-style", "normal", ["fnormal"]),
 
-    ("border", "0", ["b0"]),
+    ("border", "0", ["bor0"]),
     ("padding", "0", ["p0","po"]),
     ("margin", "0", ["m0","mo"]),
     ("margin", "0 auto", ["m0a", "moa"]),
@@ -269,19 +271,22 @@ statements = [
     ("position", "absolute", ["poabsolute", "pabsolute", "absolute"]),
 
     ("white-space", "nowrap", ["nowrap"]),
+    ("white-space", "nowrap", ["wsn", "wsnw"]),
+    ("white-space", "wrap", ["wsn", "wsnw"]),
+
     ("text-overflow", "ellipsis", ["ellipsis"]),
 
     ("flex", "auto", ["flauto"]),
 
-    ("align-items", "flex-start", ["aistart"]),
-    ("align-items", "flex-end", ["aiend"]),
+    ("align-items", "flex-start", ["aifstart"]),
+    ("align-items", "flex-end", ["aifend"]),
     ("align-items", "center", ["aicenter"]),
     ("align-items", "stretch", ["aistretch"]),
 
     ("text-overflow", "ellipsis", ["elip", "ellipsis", "toellipsis"]),
 
-    ("flex-wrap", "wrap", ["fwrap","flexwrap"]),
-    ("flex-wrap", "nowrap", ["fnowrap"]),
+    ("flex-wrap", "wrap", ["fwrap","flexwrap", "fwwrap"]),
+    ("flex-wrap", "nowrap", ["fnowrap", "fwnwrap", "fwnowrap"]),
 
     ("flex-direction", "row", ["fdrow"]),
     ("flex-direction", "row-reverse", ["fdrreverse"]),
@@ -289,8 +294,18 @@ statements = [
     ("flex-direction", "column-reverse", ["fdcreverse"]),
 
     ("justify-content", "center", ["jccenter"]),
-    ("justify-content", "flex-start", ["jcstart"]),
-    ("justify-content", "flex-end", ["jcend"]),
+    ("justify-content", "flex-start", ["jcfstart"]),
+    ("justify-content", "flex-end", ["jcfend"]),
+    ("justify-content", "space-between", ["jcbetween", "jcsbetween"]),
+    ("justify-content", "space-around", ["jcaround", "jcsaround"]),
+    ("justify-content", "space-evenly", ["jcevenly", "jcsevenly"]),
+    ("justify-content", "stretch", ["jcstretch"]),
+
+    ("pointer-events", "none", ["penone"]),
+    ("pointer-events", "auto", ["peauto"]),
+
+    ("user-select", "none", ["usnone"]),
+    ("user-select", "auto", ["usauto"]),
 
     ("direction", "ltr", ["ltr","dirltr"]),
     ("direction", "rtl", ["rtl","dirrtl"]),
