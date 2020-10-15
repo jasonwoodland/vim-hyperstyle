@@ -29,6 +29,20 @@ let s:current_file=expand("<sfile>")
 
 " Expand spaces (fl_ => float:_)
 function! hyperstyle#expand_space()
+  "
+  " If the previous line ends with a colon, or comma, then assume a
+  " multiline declaration and don't try to expand.
+  "
+  " Eg. we do not want to expand on a multiline transition declaration:
+  "
+  "   transition:
+  "	opacity 1s ease,
+  "	color 2s ease;
+  "	^
+  "	Prevent expanding 'opacity' to 'opacity:' when pressing space.
+  "
+  if getline(line('.') - 1) =~# '[:,]$' | return '' | endif
+
   return s:expand_inline('property', ' ', {})
 endfunction
 
