@@ -25,6 +25,11 @@ semicolon_expr = re.compile(r';\s*$')
 selectorlike_expr = re.compile(r'.*(link|visited|before|placeholder|root|after|focus|hover|active|checked|selected).*')
 ends_in_brace_expr = re.compile(r'.*\{\s*$')
 
+excludes = [
+    "tr",
+    "td",
+]
+
 def expand_statement(line, usecolon=True):
     """Expands a statement line. Executed when pressing <Enter>.
 
@@ -119,6 +124,7 @@ def expand_property(line, usecolon=True):
     "margin:"
     """
     indent, snippet = split_indent(line)
+    if snippet in excludes: return
 
     options = index.properties.get(snippet)
     if not options: return
