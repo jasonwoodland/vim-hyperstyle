@@ -1,5 +1,7 @@
 # vim-hyperstyle
 
+A fork with improvements and added definitions!
+
 Type faster by shorthand that will auto-expand as you type. Supports less, sass, scss, stylus, and plain CSS.
 
 ![](https://raw.githubusercontent.com/rstacruz/vim-hyperstyle/gh-pages/screencast.gif?2)
